@@ -10,12 +10,12 @@
 		height:680px;
 		background:rgba(235, 187, 251, .5);
 		font-size:12px;
-        margin: auto;
+        margin: 0;
         padding:10px;
         }
         #left{
             width: 350px;
-            height: 100%;
+            height: 680px;
             float: left;
             background-color: #dddddd;
             padding: 0;
@@ -31,15 +31,17 @@
             width: 100%;
             height: 160px;
             background-color: chartreuse;
+            display:inline-block;
 
         }
         #left-botm{
             width: 100%;
-            height: 460px; ;
+            height: 520px; ;
             background-color: aquamarine;
             padding: 0;
                  }
         #left-botm-head{
+            {#margin-top: 50px;#}
             height: 40px;
             background-color: seashell;
             padding: 0;
@@ -51,19 +53,68 @@
             height: 40px;
         }
         #left-botm-foot{
-            height: 420px;
+            {#margin-top: 50px;#}
+            height: 480px;
             background-color: darkcyan;
-            overflow: scroll;
+            overflow-x:hidden;
+            overflow-y:scroll;
         }
         .li-style{
             width: 100%;
-            height: 60px;
+            height: 100px;
             background-color: darkorange;
+            margin: 0;
+            padding: 0;
 
         }
-        #header1-board img{
+        ul{
+            margin: 0;
+            padding: 0;
+        }
+        ul li{
+            list-style: none;
+        }
+        #header1-board-1{
+            width: 120px;
+            height:120px ;
+            margin: 0;
+            float: left;
+            background-color: #f1f3f4;
+            padding: 0;
+        }
+        #header1-board-2{
+            width: 230px;
+            height:120px ;
+            float: left;
+            margin: 0;
+            padding: 0;
+            background-color: aquamarine;
+        }
+        #header1-board-1 img
+        {
+            width: 120px;
+            height: 120px;
+        }
+        #header1-board-3{
+            width: 350px;
+            height: 40px;
+            background-color: #997679;
+            float: left;
+        }
+        #header1-board-userinfo{
+            height: 165px;
             width: 100px;
-            height: 80px;
+        }
+        #li-div-1{
+            width: 100px;
+            height: 100px;
+            margin: 0;
+            padding: 0;
+            float: left;
+        }
+        #li-div-1 img{
+            width: 100px;
+            height: 100px;
         }
 
     </style>
@@ -75,11 +126,22 @@
     <div id="left">
         <div id="header1">
 
-            <div id="header1-board">
+{#            <div id="header1-board">#}
+{#                <div id="header1-board-img">#}
+{#                      <img src="/static/images/header/logo1.PNG" alt="">#}
+{#                </div>#}
+{##}
+{#                <div id="header1-board-userinfo">#}
+{#                <h1>#}
+{#                    usernaem#}
+{#                </h1>#}
+{#                </div>#}
+{#            </div>#}
+            <div id="header1-board-1">
                 <img src="/static/images/header/logo1.PNG" alt="">
-                
             </div>
-
+            <div id="header1-board-2"></div>
+            <div id="header1-board-3"></div>
 
         </div>
         <div id="left-botm">
@@ -94,7 +156,17 @@
             </div>
             <div id="left-botm-foot">
                 <ul>
-                    <li class="li-style">第一个</li>
+                    <li class="li-style">
+                        <div id="li-div">
+                            <div id="li-div-1">
+                                <img src="/static/images/header/logo1.PNG" alt="">
+                            </div>
+                            <div id="li-div-2"></div>
+                            <div id="li-div-3"></div>
+
+
+                        </div>
+                    </li>
                     <li class="li-style">第2个</li>
                     <li class="li-style">第3个</li>
                     <li class="li-style">第5个</li>
