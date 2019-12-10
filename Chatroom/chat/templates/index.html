@@ -3,24 +3,38 @@
 <html>
 <head>
     <meta charset="utf-8"/>
+    {% load staticfiles %}
     <title>Chat Rooms</title>
     <style>
+
+        body{
+
+        }
         #laye1{
 
         width:1180px;
 		height:680px;
-		background:rgba(235, 187, 251, .5);
+		background-color: #F4F4F4;
 		font-size:12px;
         margin: auto;
         margin-top: 150px;
         padding:10px;
+        border: 1px solid ;
+        border-collapse:collapse;
+        }
+        .button1{
+            margin: 0;
+            padding: 0;
+            border: 1px solid transparent;  //自定义边框
+            outline: none;
         }
         #left{
             width: 350px;
             height: 680px;
             float: left;
-            background-color: #dddddd;
+            {#background-color: #dddddd;#}
             padding: 0;
+            border: 1px solid #D1D1D2;
         }
         #right{
             width: 810px;
@@ -32,41 +46,52 @@
         #header1{
             width: 100%;
             height: 160px;
-            background-color: chartreuse;
+            {#background-color: chartreuse;#}
             display:inline-block;
 
         }
         #left-botm{
             width: 100%;
             height: 520px; ;
-            background-color: aquamarine;
+            {#background-color: aquamarine;#}
             padding: 0;
                  }
         #left-botm-head{
             {#margin-top: 50px;#}
-            height: 40px;
-            background-color: seashell;
+            margin: 0;
             padding: 0;
+            height: 40px;
+            {#background-color: seashell;#}
+            box-shadow: 1px 1px 1px;
+
 
         }
 
         .button1{
-            width:49% ;
+            width:175px ;
             height: 40px;
+            box-shadow: 0 2px 3px;
+            padding: 0;
+            margin: 0;
+            float: left;
+
+            background-color: transparent;
         }
         #left-botm-foot{
             {#margin-top: 50px;#}
             height: 480px;
-            background-color: darkcyan;
+
+            {#background-color: darkcyan;#}
             overflow-x:hidden;
             overflow-y:scroll;
         }
         .li-style{
             width: 100%;
             height: 100px;
-            background-color: darkorange;
+            {#background-color: darkorange;#}
             margin: 0;
             padding: 0;
+            box-shadow: 0 1px 5px gray;
 
         }
         ul{
@@ -83,6 +108,8 @@
             float: left;
             background-color: #f1f3f4;
             padding: 0;
+
+
         }
         #header1-board-2{
             width: 230px;
@@ -90,55 +117,80 @@
             float: left;
             margin: 0;
             padding: 0;
-            background-color: aquamarine;
+            background-color: #EEEBE8;
+            {#box-shadow: 0 1px 1px gray;#}
         }
         #header1-board-1 img
         {
             width: 120px;
             height: 120px;
+              border-radius:10px;
         }
         #header1-board-3{
             width: 350px;
             height: 40px;
-            background-color: #997679;
+            position: relative;
+            background-color: #FFFFFF;
+            border-radius:10px;
             float: left;
         }
+        #header1-board-3 button{
+            position: relative;
+            width: 350px;
+            {#bottom: 0px;#}
+            height: 40px;
+            max-width: 100%;
+            max-height: 100%;
+            {#border-radius:10px;#}
+        }
+        #header1-board-3 button img{
+            position: absolute;
+            bottom: 15px;
+        }
+
         #header1-board-userinfo{
             height: 165px;
             width: 100px;
+        }
+        #li-div{
+
         }
         #li-div-1{
             width: 100px;
             height: 100px;
             margin: 0;
-            padding: 0;
+            padding:0;
             float: left;
+            position: relative;
         }
         #li-div-1 img{
-            width: 100px;
-            height: 100px;
+            width: 80px;
+            height:80px;
+            {#float: contour;#}
+            border-radius:10px;
+            position: absolute;
+            top: 3px;
+
         }
          #li-div-2{
              width: 233px;
              height: 50px;
-             background-color:#4f4e4d;
+             {#background-color:#4f4e4d;#}
              float: left;
+             border-bottom: 1px solid;
          }
         #li-div-3{
             width: 233px;
             height: 50px;
             float: left;
-            background-color: #999999;
+            {#background-color: #999999;#}
         }
         #right-laye1{
             width: 800px;
             height: 500px;
-            background-color: chartreuse;
+            background-color: #F5F5F5;
         }
-        #chat-log{
 
-
-        }
         #target-user{
             border-bottom:1px  dashed #000;
                 height: auto;
@@ -174,6 +226,9 @@
             padding: 0;
 
         }
+        .li-style-right:hover{
+            background-color: black;
+        }
     </style>
 </head>
 
@@ -198,7 +253,13 @@
                 <img src="/static/images/header/logo1.PNG" alt="">
             </div>
             <div id="header1-board-2"></div>
-            <div id="header1-board-3"></div>
+            <div id="header1-board-3">
+                <button id="Create_room" style="background-image:url(' /static/images/add2.jpg') ">
+
+                </button>
+
+
+            </div>
 
         </div>
         <div id="left-botm">
@@ -219,88 +280,16 @@
                                 <img src="/static/images/header/logo1.PNG" alt="">
                             </div>
                             <div id="li-div-2">
-                                                    <h1>test</h1>
+                                                    <h3>断城</h3>
                             </div>
-                            <div id="li-div-3"> <h2>test2</h2></div>
+                            <div id="li-div-3">
+                                <p>看一下效果</p>
+                            </div>
 
 
                         </div>
+
                     </li>
-                    <li class="li-style">
-                        <div id="li-div">
-                            <div id="li-div-1">
-                                <img src="/static/images/header/logo1.PNG" alt="">
-                            </div>
-                            <div id="li-div-2">
-                                                    <h1>test</h1>
-                            </div>
-                            <div id="li-div-3"> <h2>test2</h2></div>
-
-
-                        </div>
-                    </li><li class="li-style">
-                        <div id="li-div">
-                            <div id="li-div-1">
-                                <img src="/static/images/header/logo1.PNG" alt="">
-                            </div>
-                            <div id="li-div-2">
-                                                    <h1>test</h1>
-                            </div>
-                            <div id="li-div-3"> <h2>test2</h2></div>
-
-
-                        </div>
-                    </li><li class="li-style">
-                        <div id="li-div">
-                            <div id="li-div-1">
-                                <img src="/static/images/header/logo1.PNG" alt="">
-                            </div>
-                            <div id="li-div-2">
-                                                    <h1>test</h1>
-                            </div>
-                            <div id="li-div-3"> <h2>test2</h2></div>
-
-
-                        </div>
-                    </li><li class="li-style">
-                        <div id="li-div">
-                            <div id="li-div-1">
-                                <img src="/static/images/header/logo1.PNG" alt="">
-                            </div>
-                            <div id="li-div-2">
-                                                    <h1>test</h1>
-                            </div>
-                            <div id="li-div-3"> <h2>test2</h2></div>
-
-
-                        </div>
-                    </li><li class="li-style">
-                        <div id="li-div">
-                            <div id="li-div-1">
-                                <img src="/static/images/header/logo1.PNG" alt="">
-                            </div>
-                            <div id="li-div-2">
-                                                    <h1>test</h1>
-                            </div>
-                            <div id="li-div-3"> <h2>test2</h2></div>
-
-
-                        </div>
-                    </li><li class="li-style">
-                        <div id="li-div">
-                            <div id="li-div-1">
-                                <img src="/static/images/header/logo1.PNG" alt="">
-                            </div>
-                            <div id="li-div-2">
-                                                    <h1>test</h1>
-                            </div>
-                            <div id="li-div-3"> <h2>test2</h2></div>
-
-
-                        </div>
-                    </li>
-
-
                 </ul>
 
 
@@ -313,6 +302,10 @@
         <div id="right-laye1">
 
             <div id="chat-log">
+                <div id="roomname">
+                    <p id="id">第一聊天室</p>
+
+                </div>
             <ul>
 
                 <h1>某某某</h1>

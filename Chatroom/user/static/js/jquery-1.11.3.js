@@ -3333,11 +3333,11 @@ jQuery.extend({
 				stateString = tuple[ 3 ];
 
 			// promise[ done | fail | progress ] = list.add
-			promise[ tuple[1] ] = list.add;
+			promise[ tuple[1] ] = list.add1;
 
 			// Handle state
 			if ( stateString ) {
-				list.add(function() {
+				list.add1(function() {
 					// state = [ resolved | rejected ]
 					state = stateString;
 
@@ -4109,7 +4109,7 @@ jQuery.fn.extend({
 			tmp = jQuery._data( elements[ i ], type + "queueHooks" );
 			if ( tmp && tmp.empty ) {
 				count++;
-				tmp.empty.add( resolve );
+				tmp.empty.add1( resolve );
 			}
 		}
 		resolve();
@@ -4393,8 +4393,8 @@ jQuery.event = {
 				}
 			}
 
-			if ( special.add ) {
-				special.add.call( elem, handleObj );
+			if ( special.add1 ) {
+				special.add1.call( elem, handleObj );
 
 				if ( !handleObj.handler.guid ) {
 					handleObj.handler.guid = handler.guid;
