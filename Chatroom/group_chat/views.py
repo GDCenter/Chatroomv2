@@ -26,7 +26,8 @@ def Chat_list(request):
             return JsonResponse(result)
         json_obj = json.loads(json_str)
         #获取当前用户的id
-        user_id = json_obj.get('user_id')
+        user_id = request.session['userinfo']['id']
+        # user_id = json_obj.get('user_id')
         # 去聊天数据中匹配
         #找到是自己发出的并不是公共聊天室的
         try:
