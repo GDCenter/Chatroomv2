@@ -20,5 +20,5 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^user/', include('user.urls')),
     url(r'^chat/', include('chat.urls')),
-    url(r'^chat_list',include('group_chat.urls'))
+    url(r'^chat_list/',include('group_chat.urls'))
 ]

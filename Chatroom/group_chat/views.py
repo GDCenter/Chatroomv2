@@ -19,7 +19,7 @@ def Chat_list(request):
     if request.method == 'POST':
         #ajax获取数据
         #检测session中的用户数据是否与ajax的数据是否一致
-        json_str = request.body
+        json_str = request.body.decode('utf-8')
         if not json_str:
             #前段传的数据有误
             result = {'code':201,'error':'Please POST data'}
@@ -36,7 +36,7 @@ def Chat_list(request):
             print(e)
             result = {'code':202,'error':'sql data error'}
             return JsonResponse(result)
-        if list_chat == None:
+        if len(list_chat) == 0:
             result = {'code':203,'error':'None'}
             return JsonResponse(result)
 
@@ -65,7 +65,7 @@ def Pub_list(request):
         #从前段数据中找出用户信息
         #根据用户信息找到与改用户所有相关的帖子
         # 将所有与该用户相关的帖子发送给前段
-        json_str = request.body
+        json_str = request.body.decode('utf-8')
         if not json_str: #前段传递数据有误
             result = {'code':201,'error':'Please POST data'}
             return JsonResponse(result)
@@ -91,5 +91,5 @@ def Pub_list(request):
 
             pub_list.append(pub_info)
         result = {'code':200,'data':pub_list}
-        return JsonResponse(result)
+        return json.dumps(result)
 

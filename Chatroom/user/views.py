@@ -54,7 +54,7 @@ def login(request):
 
         #验证用户名，密码是否正确
         try:
-            user = UserProfile.objects.get(name = username,password=password)
+            user = UserProfile.objects.get(username = username,password=password)
 
             #在当前连接的session中记录当前用户的信息
             request.session['userinfo'] ={
@@ -63,7 +63,7 @@ def login(request):
             }
         except  Exception as e :
             print(e)
-
+            return HttpResponse('用户名密码错误')
 
         #处理cookies
         response = HttpResponseRedirect('/chat')

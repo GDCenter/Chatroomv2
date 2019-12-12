@@ -17,7 +17,7 @@ def make_chat_room(request):
         result = {'code':301,'error':'Go out and turn left'}
         return JsonResponse(result)
     else:
-        json_str = request.body
+        json_str = request.body.decode('utf-8')
         json_obj = json.loads(json_str)
         #前端传递来的是，要建立的群聊名称
         roomname = json_obj['roomname']
@@ -42,7 +42,7 @@ def Chat_send(request):
         return JsonResponse(result)
     else:
         #规定前端发送的数据，如果是往公共聊天室发送，则将target_Pubroom的id传递过来
-        json_str = request.body
+        json_str = request.body.decode('utf-8')
         json_obj = json.loads(json_str)
         target_Pubroom = json_obj.get('target_Pubroom',None)
         target_user = json_obj.get('target_user',None)

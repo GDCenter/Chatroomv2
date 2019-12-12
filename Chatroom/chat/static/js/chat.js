@@ -7,7 +7,7 @@ $(function () {
                     url:'http://127.0.0.1:8000/chat_list/Getchat/',
                     datatype: 'json',
                     type:'post',
-                     data:{'code':ctype},
+                     data:{code:'ctype'},
                     timeout:2000,//超时
                     success:function(data,status){
 					alert(data);
